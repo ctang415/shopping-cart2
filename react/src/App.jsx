@@ -1,24 +1,23 @@
 import React from 'react'
 import { useEffect } from 'react'
 import { useState } from 'react'
-import { createContext } from 'react'
+import { Outlet } from 'react-router-dom'
 import './App.css'
 import Bag from './components/Bag/Bag'
 import Header from './components/Header/Header'
+import Home from './components/Home/Home'
+import Product from './components/Product/Product'
 import Store from './components/Store/Store'
+import { ShopContext } from './ShopContext'
 
-export const ShopContext = createContext({
-  products: [],
-  cartItems: [],
-  addToCart: () => {},
-})
+const App = () => {
 
-function App() {
-  const [ error, setError ] = useState()
+  const [ error, setError ] = useState(null)
   const [ loading, setLoading ] = useState(true)
   const [ products, setProducts ] = useState([])
-  const [ cartItems, setCartItems ] = useState()
+  const [ cartItems, setCartItems ] = useState([])
   let load = false
+  
   const addToCart = () => {
 
   }
@@ -48,15 +47,13 @@ function App() {
   }
   }, [])
 
-
   return (
-    <>
-    <ShopContext.Provider value={ {products, cartItems, addToCart} }>
-    <Header/>
-    <Store/>
-    <Bag/>
+    <ShopContext.Provider value={ { products, cartItems, addToCart } }>
+      <Header/>
+      <Home/>
+      <Outlet/>
     </ShopContext.Provider>
-    </>
+
   )
 }
 

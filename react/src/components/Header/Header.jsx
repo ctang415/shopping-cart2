@@ -1,9 +1,13 @@
+import { useContext } from "react"
 import { Link } from "react-router-dom"
+import { ShopContext } from "../../ShopContext"
 
 const Header = () => {
 
+    const { cartItems } = useContext(ShopContext)
+
     return (
-        <nav>
+        <nav className="header">
             <div>
 
             </div>
@@ -19,12 +23,10 @@ const Header = () => {
                             Store
                         </li>
                     </Link>
-                    <Link to="/cart">
-                    <li>
-                        Cart
-                    </li>
-                </Link>
                 </ul>
+            </div>
+            <div>
+                <Link to="/bag">{cartItems.length}</Link>
             </div>
         </nav>
     )

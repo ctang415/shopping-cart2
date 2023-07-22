@@ -1,11 +1,12 @@
 import { useContext } from "react"
-import { ShopContext } from "../../App"
+import { ShopContext } from "../../ShopContext"
 
 const Store = () => {
-    const { products } = useContext(ShopContext)
+    const { products }  = useContext(ShopContext)
 
     return (
         <>
+        <h2>Store</h2>
         {products.map(product => {
             return (
                 <div key={product.name}>
