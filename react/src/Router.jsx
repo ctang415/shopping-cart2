@@ -2,7 +2,6 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom"
 import App from "./App"
 import Bag from "./components/Bag/Bag"
 import Error from "./components/Error"
-import Header from "./components/Header/Header"
 import Home from "./components/Home/Home"
 import Product from "./components/Product/Product"
 import Store from "./components/Store/Store"
@@ -12,22 +11,22 @@ const Router = () => {
     const router= createBrowserRouter([
       {
         element: <App/>,
+        errorElement: <Error />,
         children: [
           {
             path: "/",
             element: <Home />,
-            errorElement: <Error />,
           },
           {
-            path: "/store",
+            path: "store",
             element: <Store />,
           },
           {
-            path: "/store/:id",
+            path: "store/:id",
             element: <Product />,
           },
           {
-            path: "/bag",
+            path: "bag",
             element: <Bag/>
           }
         ],

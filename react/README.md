@@ -1,8 +1,7 @@
-# React + Vite
+Shopping cart 2 is my attempt at revisiting my original Shopping cart project after learning about CSS-in-JS, React Context, and a different way to set up React router - as well as a good opportunity for me to once again practice calling APIs.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Surprisingly, the hardest part about recreating this project was actually setting up the React router which has always been pretty straightforward in my other projects when I didn't use createBrowserRouter. I didn't realize that I had to put the navigation paths for my header into an array titled children underneath the main parent component <App> and then use <Outlet> to be able to move through them. 
 
-Currently, two official plugins are available:
+Once I got the router working though, I was able to properly pass my React Context object to my other components and retrieve the props that I needed for each page. Using the React Context hook made it much easier to keep track of all the important props without having to worry about whether or not I forgot to pass one which was an issue I faced in one of my previous projects (Freddit - reddit clone). Not having to pass a bunch of props through multiple components makes the code a lot easier to read which I think is a huge plus.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+The idea of CSS-in-JS honestly seemed a bit daunting when I was first learning about it, but once I was able to successfully create my first styled component thanks to the styled-components package, I went a little crazy and started making a bunch of them for my project. I usually hate working with CSS because I stick with one CSS page and throw everything in there, but having styled components made it easier for me to reuse them and also edit them on the fly without having to search for that one specific class in a CSS document. While I do think I may have went a little overboard with them in this particular project, I think I just wanted to get into the habit of creating them. 

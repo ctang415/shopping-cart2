@@ -2,28 +2,30 @@ import React from 'react'
 import { useEffect } from 'react'
 import { useState } from 'react'
 import { Outlet } from 'react-router-dom'
+import styled from 'styled-components'
 import './App.css'
-import Bag from './components/Bag/Bag'
+import Footer from './components/Footer'
 import Header from './components/Header/Header'
-import Home from './components/Home/Home'
-import Product from './components/Product/Product'
-import Store from './components/Store/Store'
 import { ShopContext } from './ShopContext'
 
-const App = () => {
+export const Wrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+`
 
+const App = () => {
   const [ error, setError ] = useState(null)
   const [ loading, setLoading ] = useState(true)
   const [ products, setProducts ] = useState([])
   const [ cartItems, setCartItems ] = useState([])
-  let load = false
   
   const addToCart = () => {
 
   }
 
   useEffect(() => {
-    if (!load) {
+    let ignore = false
     const callAPI = async () => {
       try {
         const response = await fetch('https://fakestoreapi.com/products')
@@ -42,16 +44,20 @@ const App = () => {
       setLoading(false)
     }
   }
-    callAPI()
-    load = true
-  }
+    if (!ignore) {
+      callAPI()
+    }
+    return () => ignore = true
+  
   }, [])
 
   return (
     <ShopContext.Provider value={ { products, cartItems, addToCart } }>
-      <Header/>
-      <Home/>
-      <Outlet/>
+        <Header/>
+        <Wrapper>
+          <Outlet/>
+        </Wrapper>
+        <Footer/>
     </ShopContext.Provider>
 
   )

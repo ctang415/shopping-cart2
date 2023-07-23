@@ -1,34 +1,40 @@
 import { useContext } from "react"
-import { Link } from "react-router-dom"
+import styled from "styled-components"
 import { ShopContext } from "../../ShopContext"
+import StyledLinks from "./StyledLinks"
+import StyledList from "./StyledList"
+import StyledListItem from "./StyledListItem"
+import StyledNav from "./StyledNav"
+
+export const StyledLinksLogo = styled(StyledLinks)`
+    font-size: 2em;
+    font-weight: bold
+`
 
 const Header = () => {
-
     const { cartItems } = useContext(ShopContext)
 
     return (
-        <nav className="header">
+        <StyledNav>
+            <StyledLinksLogo to="/">
+                Mega Shop
+            </StyledLinksLogo>
             <div>
-
-            </div>
-            <div>
-                <ul>
-                    <Link to="/">
-                        <li>
+                <StyledList>
+                    <StyledLinks to="/">
+                        <StyledListItem>
                             Home    
-                        </li>
-                    </Link>
-                    <Link to="/store">
-                        <li>
+                        </StyledListItem>
+                    </StyledLinks>
+                    <StyledLinks to="store">
+                        <StyledListItem>
                             Store
-                        </li>
-                    </Link>
-                </ul>
+                        </StyledListItem>
+                    </StyledLinks>
+                    <StyledLinks to="bag">Bag ({cartItems.length})</StyledLinks>
+                </StyledList>
             </div>
-            <div>
-                <Link to="/bag">{cartItems.length}</Link>
-            </div>
-        </nav>
+        </StyledNav>
     )
 
 }
