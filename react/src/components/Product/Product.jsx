@@ -52,7 +52,7 @@ const Product = () => {
         if (!ignore) {
             if (params.id) {
                 let item = products.find( item => item.name === params.id)
-                setProduct(item)  
+                setProduct(item)
             }
         }
         return () => { ignore = true }
