@@ -4,6 +4,7 @@ export const ShopContext = createContext(
     {
         products: [],
         cartItems: [],
-        addToCart: () => {}
+        addToCart: () => {},
+        removeFromCart: () => {}
     }
 )
