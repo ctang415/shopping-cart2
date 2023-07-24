@@ -1,4 +1,4 @@
-Shopping cart 2 is my attempt at revisiting my original Shopping cart project after learning about CSS-in-JS, React Context, and a different way to set up React router - as well as a good opportunity for me to once again practice calling APIs.
+Shopping cart 2 is my attempt at revisiting my original Shopping cart project after learning about CSS-in-JS, React Context, and a different way to set up React router - as well as a good opportunity for me to once again practice calling APIs. It's a very bare bones recreation of the original because I wanted to focus mainly on the new techniques that I learned rather than the design/mobile responsiveness. 
 
 Surprisingly, the hardest part about recreating this project was actually setting up the React router which has always been pretty straightforward in my other projects when I didn't use createBrowserRouter. I didn't realize that I had to put the navigation paths for my header into an array titled children underneath the main parent component <App> and then use <Outlet> to be able to move through them. 
 
