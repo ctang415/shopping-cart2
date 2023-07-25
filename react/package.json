@@ -1,12 +1,11 @@
 {
-  "homepage": "https://github.com/ctang415/shopping-cart2",
   "name": "react",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "react-scripts build && echo '/* /index.html 200' | cat >build/_redirects ",
+    "build": "vite build",
     "test": "vitest",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
